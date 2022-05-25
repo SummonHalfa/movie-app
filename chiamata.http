@@ -1,0 +1,32 @@
+
+// Chiamata con ricerca parametro "s" => nightmare solo per la prima pagina (primi 10 risultati)
+GET http://www.omdbapi.com/?apikey=14c96103&s=nightmare HTTP/1.1
+
+###
+
+// Chiamata con ricerca parametro "s" => nightmare solo per la prima pagina (primi 10 risultati)
+GET http://www.omdbapi.com/?apikey=14c96103&s=nightmare&page=2 HTTP/1.1
+
+###
+
+// Chiamata con ricerca parametro "s" => terminator SOLO PER I MOVIE
+GET http://www.omdbapi.com/?apikey=14c96103&s=terminator&type=movie HTTP/1.1
+
+###
+
+// Chiamata con ricerca parametro "s" => terminator SOLO PER I SERIES
+GET http://www.omdbapi.com/?apikey=14c96103&s=terminator&type=series HTTP/1.1
+
+###
+
+
+// Chiamata con ricerca parametro "s" => terminator SOLO PER I GAME
+GET http://www.omdbapi.com/?apikey=14c96103&s=terminator&type=game HTTP/1.1
+
+###
+
+// Chiamata di dettaglio di un singolo movie
+GET http://www.omdbapi.com/?apikey=14c96103&i=tt0103064 HTTP/1.1
+
+###
+
