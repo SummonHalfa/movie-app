@@ -1,69 +1,560 @@
-<!DOCTYPE html>
+<!-- 1. Sviluppo Navbar colori Netflix-->
+<!-- 2. Video di background -->
+<!-- 3. Slider di copertine contenenti dati Api = $TITLE $YEAR $TYPE -->
+<!-- 4. Template bootstrap come footer -->
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/landing.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <title>MovieApp - Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <div style="position: relative;">
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg movieapp-navbar movieapp-padding-left movieapp-padding-right">
+      <div class="container-fluid">
+        <div class="movieapp-row">
+          <div class="left d-flex align-items-center">
             <a class="navbar-brand" href="#">
-                <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                Movie App
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto p-1 mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Film</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Serie TV</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Cerca Film" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Cerca</button>
-            </form>
+              <img src="assets/images/logo.png" alt="">
+            </a>
+            <div  class="movieapp-nav">
+               <section>
+                  <button>Home</button>
+                  <a href="#trending"><button >Trending</button></a>
+               </section>
+            </div>
+            <div class="movieapp-dropdown-box dropdown">
+              <button class="movieapp-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Browse
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Home</a></li>
+                <li><a class="dropdown-item" href="#">Trending</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- remember to add funtionality to the button-->
+          <div class="right d-flex align-items-center">
+            <i class="bi bi-search"></i>
           </div>
         </div>
-      </nav>
-<!-- Jumbotron -->
-        <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" style="background-image: url('https://images4.alphacoders.com/113/thumb-1920-1133135.jpg'); width: 100%; height: 900px;">
-            <div class="container">
+      </div>
+    </nav>
+    <!-- /header -->
+
+
+    <!-- video -->
+      <div class="">
+         <section class="movieapp-home-video">
+            <div class="top"></div>
+            <div class="bottom"></div>
+            <video src="assets/video/video.mp4" autoplay muted loop></video>
+            <div class="content">
+                <section class="left">
+                    <img src="assets/images/terminator.png" alt="">
+                
+                    <div class="d-flex mt-2">
+                      <button class="btn btn-light m-2" > <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now </button>
+                      <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More Info</button>
+                    </div>
+                </section>
+               
+            </div>
+          </section>
+         
+      </div>
+    <!-- video -->
+
+      <!-- sliders -->
+      <div class="slider-box" id="trending">
+        <div class="container-fluid slider">
+          <section class="d-flex justify-content-between margin-right">
+            <p class="text-white"> <b>Trending</b> </p>
+            <div class="">
+              <button  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active tab-change-btn" aria-current="true" aria-label="Slide 1"></button>
+              <button class="tab-change-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button class="tab-change-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+          </section>
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            
+            <div class="carousel-inner" style="position: relative; overflow: visible;">
+              <div class="carousel-item active">
+                <section class="d-flex" style="">
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzFjZmM1ODgtMDBkMS00NWFlLTg2YmUtZjc3ZTgxMjE1OTI2L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                        <section class="d-flex justify-content-between">
+                          <div>
+                            <i class="bi bi-play-circle-fill card-icon"  ></i>
+                            <i  class="bi bi-plus-circle card-icon"></i>
+                          </div>
+                          <div>
+                            <i class="bi bi-arrow-down-circle card-icon"></i>
+                          </div>
+                        </section>
+                        <section class="d-flex align-items-center justify-content-between" >
+                           <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                             <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                          
+                          </section>
+                          <span class="movieapp-card-text text-white">$TITLE</span>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BODIxMTQ0NTIxM15BMl5BanBnXkFtZTcwMzY1NDAyMw@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjFkYTEwNjAtYWU1YS00NTMyLTkwYmUtZjEyMjZjMDg5Njc5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div> <div class="card-body"> 
+                        <section class="d-flex justify-content-between">
+                          <div>
+                            <i class="bi bi-play-circle-fill card-icon"  ></i>
+                            <i  class="bi bi-plus-circle card-icon"></i>
+                          </div>
+                          <div>
+                            <i class="bi bi-arrow-down-circle card-icon"></i>
+                          </div>
+                        </section>
+                        <section class="d-flex align-items-center justify-content-between" >
+                           <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                             <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                          
+                          </section>
+                          <span class="movieapp-card-text text-white">$TITLE</span>
+                    </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjBmNWNiN2ItYzM0ZC00MWQyLWFmZjctMmZkNTVhMjE1ZjFhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BMzcxYjI5OTgtMmYyYS00ZTFhLWI3NzktOTBmMzQyNWNkNTk5XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTk5NzM1ODgyN15BMl5BanBnXkFtZTcwMzA5MjAzMw@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                </section>
+              </div>
+              <div class="carousel-item">
+                <section class="d-flex">
+                  <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BODBlOTJhZjItMGRmYS00YzM1LWFmZTktOTJmNDMyZTBjMjBkXkEyXkFqcGdeQXVyMjMwNDgzNjc@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzhlYjE5MjMtZDJmYy00MGZmLTgwN2MtZGM0NTk2ZTczNmU5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMGZiNTczNWItOTdmYy00OTFjLWIwOWUtMmE3Y2QyNzBmZDJkXkEyXkFqcGdeQXVyNzg3NjQyOQ@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BNjY4OTRhODktMWYwZC00MGFjLWIzZmUtYTJiYTUyMWZjNjI3XkEyXkFqcGdeQXVyNDgxODg1MzU@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BNjY4OTRhODktMWYwZC00MGFjLWIzZmUtYTJiYTUyMWZjNjI3XkEyXkFqcGdeQXVyNDgxODg1MzU@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjA5OTk4MTQwNV5BMl5BanBnXkFtZTgwMzkxNTEwMTE@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                </section>
+              </div>
+              <div class="carousel-item">
+                <section class="d-flex" >
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BN2FhOTQ2MmQtNTY0OC00NWYyLThjNjMtZmZiOTBmYTY4MmM2XkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzllMjAyOGMtOGVlNS00YTE4LWFlMzUtNGE4NjZhN2I0NmQyXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BYTU5ZTcwZmMtMWNhNC00MGU5LWE4NTMtMjNkZTA5MDIzMjg0XkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BNDEyZWFjYzgtMmMzNC00MTJjLWE5M2UtYzA2NzAyYjg0NjI0XkEyXkFqcGdeQXVyNjExODE1MDc@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BYjEyNWU3Y2ItMGI4MS00OGY2LTk2ZTUtNWQyNDY3MTRmM2I1XkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDFhZGI0NTgtODM4OS00ZWU5LTlmNDMtMzA4YTc2NTYwZThmXkEyXkFqcGdeQXVyMTk5NDI0MA@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    <div class="card-body"> 
+                      <section class="d-flex justify-content-between">
+                        <div>
+                          <i class="bi bi-play-circle-fill card-icon"  ></i>
+                          <i  class="bi bi-plus-circle card-icon"></i>
+                        </div>
+                        <div>
+                          <i class="bi bi-arrow-down-circle card-icon"></i>
+                        </div>
+                      </section>
+                      <section class="d-flex align-items-center justify-content-between" >
+                         <p class="movieapp-card-text m-0" style="color: rgb(0, 186, 0);">$YEAR</p> 
+                           <span class="m-2 movieapp-card-text text-white">$TYPE</span> <span class="border movieapp-card-text p-1 text-white">HD</span>
+                        
+                        </section>
+                        <span class="movieapp-card-text text-white">$TITLE</span>
+                  </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      <!-- sliders-end -->
+
+
+      <!-- footer  -->
+      <div class="container footer">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
                 <div class="row">
-                    <div class="col-md-6 left-box ms-5 ps-5">
-                        <div class="container text-start ms-5 ps-5">
-                            <h1>Terminator</h1>
-                            <p>Terminator è un film bellissimo</p>
-                            <h2>Anno : 1991</h2>
-                            <h2>Tipo : Movie</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-3 left-box">
-                        <img src="https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg" class="img-thumbnail">
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="container">
-                        <div class="col-md-6 left-box ms-5 ps-5">
-                            <div class="container text-start ms-5 ps-5">
-                                <h1>Altri Film</h1>
-                            </div>
-                            
-                        </div>
-                    </div>
+                  <div class="col-md-3">
+                        <ul>
+                          <li>Audio and Subtitle</li>
+                          <li>Media Center</li>
+                          <li>Privacy</li>
+                          <li>Contact Us</li>
+                        </ul>
+                  </div>
+                  <div class="col-md-3">
+                    <ul>
+                      <li>Audio description</li>
+                      <li>Investor Relation</li>
+                      <li>Terms and Conditions</li>
+                      <li>Legal Notices</li>
+                    </ul>
+              </div>
+              <div class="col-md-3">
+                <ul>
+                  <li>Help Center</li>
+                  <li>Jobs</li>
+            
+                </ul>
+               </div>
+               <div class="col-md-3">
+                <ul>
+                  <li>Gift card</li>
+                  <li>Subscription</li>
+            
+                </ul>
+               </div>
                 </div>
             </div>
-        </div>
-</body>
+          </div>
+          <div class="row">
+            <div class="col-10 mx-auto">
+              <div class="row">
+               
+                <div class="col">
+                  <p class="copy-right">@movieapp copyright</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+
+    <script src="assets/js/javaScript.js"></script>
+  </body>
 </html>
