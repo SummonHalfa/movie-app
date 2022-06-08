@@ -172,13 +172,17 @@ i{
     z-index: 500;
 }
 
+.swiper {
+    width: 600px;
+    height: 300px;
+}
+
 
 .card{
-    width: 250px;
+    width: 200px;
     background-color: #141414;
     border-radius: 4px;
     transition: 0.2s linear;
-    margin: 3px;
     position: relative;
 }
 
@@ -192,10 +196,10 @@ i{
 .card-body{
     display: none;
     /* height: 0px; */
-    padding: 10px 15px;
+    padding: 5px 15px;
     position: absolute;
     background-color: #141414;
-    top: 270px;
+    top: 170px;
     width: 100%;
 }
 
