@@ -1,18 +1,167 @@
-<!DOCTYPE html>
+<!-- 1. Sviluppo Navbar colori Netflix-->
+<!-- 2. Video di background -->
+<!-- 3. Slider di copertine contenenti dati Api = $TITLE $YEAR $TYPE -->
+<!-- 4. Template bootstrap come footer -->
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/landing.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <title>MovieApp - Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="module">
-        import * as test from "/config.js";
-        import {apiList} from "/index.js";
-        
-        apiList("Terminator", test.CONTENT_TYPE.MOVIE);
+      import * as test from "./assets/js/config.js";
+      import {apiList} from "./assets/js/index.js";
+      
+      apiList("Terminator", test.CONTENT_TYPE.MOVIE);
     </script>
-    <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     
-</body>
+    <div style="position: relative;">
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg movieapp-navbar movieapp-padding-left movieapp-padding-right">
+      <div class="container-fluid">
+        <div class="movieapp-row">
+          <div class="left d-flex align-items-center">
+            <a class="navbar-brand" href="#">
+              <img src="assets/images/logo.png" alt="">
+            </a>
+            <div  class="movieapp-nav">
+               <section>
+                  <button>Home</button>
+                  <a href="#trending"><button >Trending</button></a>
+               </section>
+            </div>
+            <div class="movieapp-dropdown-box dropdown">
+              <button class="movieapp-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Browse
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Home</a></li>
+                <li><a class="dropdown-item" href="#">Trending</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- remember to add funtionality to the button-->
+          <div class="right d-flex align-items-center">
+            <i class="bi bi-search"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- /header -->
+
+
+    <!-- video -->
+      <div class="">
+         <section class="movieapp-home-video">
+            <div class="top"></div>
+            <div class="bottom"></div>
+            <video src="assets/video/video.mp4" autoplay muted loop></video>
+            <div class="content">
+                <section class="left">
+                    <img src="assets/images/terminator.png" alt="">
+                
+                    <div class="d-flex mt-2">
+                      <button class="btn btn-light m-2" onclick="location.href = 'https://www.youtube.com/watch?v=CRRlbK5w8AE';"> <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now </button>
+                      <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More Info</button>
+                    </div>
+                </section>
+               
+            </div>
+          </section>
+         
+      </div>
+    <!-- video -->
+
+      <!-- sliders -->
+      <div class="slider-box" id="trending">
+        <div class="container-fluid slider">
+          <section class="d-flex justify-content-between margin-right">
+            <p class="text-white"> <b>Trending</b> </p>
+          </section>
+                        <!-- Slider main container -->
+                        <div class="swiper" style="width:80%">
+                          <!-- Additional required wrapper -->
+                          <div id ="movies" class="swiper-wrapper">
+                            <!-- Slides -->
+                          </div>
+          
+                          <!-- If we need navigation buttons -->
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+          </div>
+        </div>
+      <!-- sliders-end -->
+
+
+      <!-- footer  -->
+      <div class="container footer">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="row">
+                  <div class="col-md-3">
+                        <ul>
+                          <li>Audio and Subtitle</li>
+                          <li>Media Center</li>
+                          <li>Privacy</li>
+                          <li>Contact Us</li>
+                        </ul>
+                  </div>
+                  <div class="col-md-3">
+                    <ul>
+                      <li>Audio description</li>
+                      <li>Investor Relation</li>
+                      <li>Terms and Conditions</li>
+                      <li>Legal Notices</li>
+                    </ul>
+              </div>
+              <div class="col-md-3">
+                <ul>
+                  <li>Help Center</li>
+                  <li>Jobs</li>
+            
+                </ul>
+               </div>
+               <div class="col-md-3">
+                <ul>
+                  <li>Gift card</li>
+                  <li>Subscription</li>
+            
+                </ul>
+               </div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-10 mx-auto">
+              <div class="row">
+               
+                <div class="col">
+                  <p class="copy-right">@movieapp copyright</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="assets/js/javaScript.js"></script>
+    <script src="assets/js/swiper.js"></script>
+  </body>
 </html>
